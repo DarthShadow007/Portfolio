@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+        "Noto Sans", sans-serif;
+      font-weight: 400;
+      color: #111827;
+      background: #f9fafb;
+    }
+    @keyframes fade {
+      0% {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade {
+      animation: fade 0.7s ease-out both;
+    }
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="text-gray-800">
+  <!-- ========== NAVBAR ========== -->
+  <header
+    class="sticky top-0 z-30 backdrop-blur bg-white/80 border-b border-gray-200"
+  >
+    <div
+      class="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16"
+    >
+      <a href="#" class="font-semibold tracking-tight text-xl">Portfolio</a>
+      <nav class="hidden md:flex gap-8 text-sm">
+        <a href="#about" class="hover:text-indigo-600 transition">About</a>
+        <a href="#skills" class="hover:text-indigo-600 transition">Skills</a>
+        <a href="#projects" class="hover:text-indigo-600 transition">Projects</a>
+        <a href="#testimonials" class="hover:text-indigo-600 transition"
+          >Testimonials</a
+        >
+        <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+      </nav>
+      <a href="#contact" class="md:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          data-lucide="menu"
+          class="lucide lucide-menu w-6 h-6 stroke-[1.5]"
+        >
+          <path d="M4 12h16"></path>
+          <path d="M4 18h16"></path>
+          <path d="M4 6h16"></path>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section
+    class="max-w-7xl md:px-10 flex flex-col md:flex-row gap-12 animate-fade mr-auto ml-auto pt-20 pr-6 pb-24 pl-6 items-center"
+  >
+    <div class="flex-1">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-gray-900">
+        Hi, I’m
+        <span class="text-indigo-600">Mohd Bashar</span>.
+      </h1>
+      <p class="mt-6 text-lg leading-8 max-w-xl">
+        Full-stack developer, Unity tinkerer, and cyber-security enthusiast
+        crafting meaningful digital experiences.
+      </p>
+      <div class="flex gap-4 mt-8">
+        <a
+          href="#projects"
+          class="px-5 py-3 bg-indigo-600 text-white rounded-md shadow hover:bg-indigo-700 transition"
+          >View Projects</a
+        >
+
+        <!-- Dropdown for Download Résumé with social links -->
+        <div class="relative inline-block text-left">
+          <button
+            id="resume-menu-button"
+            type="button"
+            class="inline-flex justify-center w-full px-5 py-3 border border-gray-300 rounded-md shadow-sm bg-white text-gray-700 hover:bg-gray-50 focus:outline-none"
+          >
+            Download Résumé
+            <svg
+              class="-mr-1 ml-2 h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+
+          <div
+            id="resume-menu-dropdown"
+            class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+            role="menu"
+            aria-orientation="vertical"
+          >
+            <div class="py-1" role="none">
+              <a
+                href="https://github.com/DarthShadow007"
+                target="_blank"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                >GitHub Profile</a
+              >
+              <a
+                href="https://www.linkedin.com/in/mohd-bashar-khan-1b4b73202/"
+                target="_blank"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                >LinkedIn Profile</a
+              >
+              <a
+                href="https://www.instagram.com/kha_mohdbashar_mbk/?next=%2F"
+                target="_blank"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                >Instagram Profile</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-48 h-48 md:w-60 md:h-60 overflow-hidden border-indigo-200 border-4 rounded-full shadow-lg"
+    >
+      <img
+        src="PhotoGit.png"
+        alt="Your Name"
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ========== ABOUT ========== -->
+  <section
+    id="about"
+    class="max-w-4xl mx-auto px-6 md:px-10 py-24 grid md:grid-cols-3 gap-12 animate-fade"
+  >
+    <h2 class="text-3xl font-semibold tracking-tight col-span-full">
+      About Me
+    </h2>
+    <p class="md:col-span-2 leading-7">
+      I’m a passionate software developer currently pursuing B.Tech In
+      computer Scinece Engineering from Vellore Institute of Technology with a
+      knack for solving complex problems and turning ideas into reality. Outside
+      of coding, you'll find me playing chess, strumming the guitar, smashing
+      shuttlecocks on the badminton court, or enjoying a game of cricket with
+      friends.
+      <!-- EDIT YOUR INTRODUCTION -->
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ========== SKILLS ========== -->
+  <section
+    id="skills"
+    class="max-w-7xl md:px-10 animate-fade mr-auto ml-auto pt-24 pr-6 pb-24 pl-6"
+  >
+    <h2 class="text-3xl font-semibold tracking-tight text-center mb-12">
+      Skills
+    </h2>
+    <div class="grid md:grid-cols-2 gap-16">
+      <!-- LIST OF SKILLS -->
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            data-lucide="code"
+            class="lucide lucide-code w-6 h-6 stroke-[1.5] text-indigo-600"
+          >
+            <path d="m16 18 6-6-6-6"></path>
+            <path d="m8 6-6 6 6 6"></path>
+          </svg>
+          <div>
+            <h3 class="font-medium">Coding Languages</h3>
+            <p class="text-sm text-gray-600">
+              Python, C++, C#, HTML &nbsp;•&nbsp; Full-stack web development
+            </p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            data-lucide="gamepad-2"
+            class="lucide lucide-gamepad-2 w-6 h-6 stroke-[1.5] text-indigo-600"
+          >
+            <line x1="6" x2="10" y1="11" y2="11"></line>
+            <line x1="8" x2="8" y1="9" y2="13"></line>
+            <line x1="15" x2="15.01" y1="12" y2="12"></line>
+            <line x1="18" x2="18.01" y1="10" y2="10"></line>
+            <path
+              d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"
+            ></path>
+          </svg>
+          <div>
+            <h3 class="font-medium">Unity Game Development</h3>
+            <p class="text-sm text-gray-600">2D/3D gameplay, physics, asset pipeline</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            data-lucide="shield"
+            class="lucide lucide-shield w-6 h-6 stroke-[1.5] text-indigo-600"
+          >
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+            ></path>
+          </svg>
+          <div>
+            <h3 class="font-medium">Ethical Hacking</h3>
+            <p class="text-sm text-gray-600">Pen-testing, vulnerability scanning, CTFs</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <i
+            data-lucide="language"
+            class="w-6 h-6 stroke-[1.5] text-indigo-600"
+          ></i>
+          <div>
+            <h3 class="font-medium">Japanese Language</h3>
+            <p class="text-sm text-gray-600">JLPT N5 proficiency</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            data-lucide="bar-chart-3"
+            class="lucide lucide-bar-chart-3 w-6 h-6 stroke-[1.5] text-indigo-600"
+          >
+            <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
+            <path d="M18 17V9"></path>
+            <path d="M13 17V5"></path>
+            <path d="M8 17v-3"></path>
+          </svg>
+          <div>
+            <h3 class="font-medium">Data Structures &amp; Algorithms</h3>
+            <p class="text-sm text-gray-600">
+              Competitive programming &amp; problem solving
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHART VISUALIZATION -->
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ========== PROJECTS ========== -->
+  <section
+    id="projects"
+    class="max-w-7xl md:px-10 animate-fade mr-auto ml-auto pt-24 pr-6 pb-24 pl-6"
+  >
+    <h2 class="text-3xl font-semibold tracking-tight text-center mb-12">
+      Project Highlights
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- CARD -->
+      <article
+        class="relative rounded-lg overflow-hidden border border-gray-200 shadow hover:shadow-lg transition group"
+      >
+        <img
+          src="GameProject.png"
+          alt="Project Screenshot"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-6">
+          <h3 class="group-hover:underline font-medium">DeathShooter Game(FPS Game)</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            It is a First person FPS shooter game that specializes in AI based
+            enemies and immersive Experinece.
+          </p>
+        </div>
+      </article>
+
+      <article
+        class="relative rounded-lg overflow-hidden border border-gray-200 shadow hover:shadow-lg transition group"
+      >
+        <img
+          src="ARapp.png"
+          alt="Project Screenshot"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-6">
+          <h3 class="font-medium group-hover:underline">Human anatomy AR application</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            It is an Basic AR application created using unity game engine whih
+            helps student visualize human anatomy by placing the 2D images onto
+            the real world.
+          </p>
+        </div>
+      </article>
+
+      <article
+        class="relative rounded-lg overflow-hidden border border-gray-200 shadow hover:shadow-lg transition group"
+      >
+        <img
+          src="DemoResume.png"
+          alt="Project Screenshot"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-6">
+          <h3 class="font-medium group-hover:underline">Demo Resume</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            First demo resume website i created and hosted on Github
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section
+    id="testimonials"
+    class="max-w-5xl mx-auto px-6 md:px-10 py-24 animate-fade"
+  >
+    <h2 class="text-3xl font-semibold tracking-tight text-center mb-12">
+      Testimonials
+    </h2>
+    <div class="space-y-12">
+      <!-- SINGLE TESTIMONIAL -->
+      <blockquote
+        class="relative bg-white border border-gray-200 rounded-lg p-6 shadow-sm"
+      >
+        <p class="italic">
+          “Your Name consistently delivers high-quality code and innovative
+          solutions. Their passion for learning is evident in every project.”
+        </p>
+        <footer class="mt-4 flex items-center gap-4">
+          <img
+            src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?fit=crop&amp;w=80&amp;q=80"
+            alt=""
+            class="w-10 h-10 rounded-full object-cover"
+          />
+          <div>
+            <strong class="block font-medium">Jane Armstrong</strong>
+            <span class="text-xs text-gray-500">Senior Talent Partner</span>
+          </div>
+        </footer>
+      </blockquote>
+
+      <blockquote
+        class="relative bg-white border border-gray-200 rounded-lg p-6 shadow-sm"
+      >
+        <p class="italic">
+          “A rare blend of creativity and analytical skill—perfect for tackling
+          complex game development tasks.”
+        </p>
+        <footer class="mt-4 flex items-center gap-4">
+          <img
+            src="https://images.unsplash.com/photo-1635151227785-429f420c6b9d?w=1080&amp;q=80"
+            alt=""
+            class="w-10 h-10 rounded-full object-cover"
+          />
+          <div>
+            <strong class="block font-medium">Alex DeShawn</strong>
+            <span class="text-xs text-gray-500">Lead Engineer, Game Studio</span>
+          </div>
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ========== CONTACT ========== -->
+  <section
+    id="contact"
+    class="max-w-3xl mx-auto px-6 md:px-10 py-24 animate-fade"
+  >
+    <h2 class="text-3xl font-semibold tracking-tight text-center mb-12">
+      Get in Touch
+    </h2>
+    <form class="space-y-6">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="">
+          <label for="name" class="block text-sm font-medium mb-1">Name</label>
+          <input
+            id="name"
+            type="text"
+            required=""
+            class="w-full rounded-md border-gray-300 focus:ring-indigo-600 focus:border-indigo-600"
+            placeholder="Your Name"
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium mb-1">Email</label>
+          <input
+            id="email"
+            type="email"
+            required=""
+            class="w-full rounded-md border-gray-300 focus:ring-indigo-600 focus:border-indigo-600"
+            placeholder="you@example.com"
+          />
+        </div>
+      </div>
+      <div class="">
+        <label for="message" class="block text-sm font-medium mb-1">Message</label>
+        <textarea
+          id="message"
+          rows="5"
+          required=""
+          class="w-full rounded-md border-gray-300 focus:ring-indigo-600 focus:border-indigo-600"
+          placeholder="Let’s build something awesome..."
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        class="px-6 py-3 bg-indigo-600 text-white rounded-md shadow hover:bg-indigo-700 transition"
+      >
+        Send Message
+      </button>
+    </form>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="py-12 text-center text-sm text-gray-500">
+    © <span id="year">2025</span> Kha_mohdbashar_mbk. All rights reserved.
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Chart.js setup
+    const ctx = document.getElementById("skillsChart")?.getContext("2d");
+    if (ctx) {
+      new Chart(ctx, {
+        type: "radar",
+        data: {
+          labels: [
+            "Python",
+            "C++",
+            "C#",
+            "HTML",
+            "Unity",
+            "Ethical Hacking",
+            "Japanese",
+            "DSA",
+          ],
+          datasets: [
+            {
+              data: [90, 80, 75, 85, 70, 65, 50, 80],
+              backgroundColor: "rgba(99,102,241,.1)",
+              borderColor: "rgb(99,102,241)",
+              borderWidth: 2,
+              pointBackgroundColor: "rgb(99,102,241)",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: { r: { beginAtZero: true, max: 100 } },
+        },
+      });
+    }
+
+    // Set year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Dropdown toggle for Resume links
+    const menuButton = document.getElementById("resume-menu-button");
+    const menuDropdown = document.getElementById("resume-menu-dropdown");
+    if (menuButton && menuDropdown) {
+      menuButton.addEventListener("click", () => {
+        menuDropdown.classList.toggle("hidden");
+      });
+
+      window.addEventListener("click", (event) => {
+        if (
+          !menuButton.contains(event.target) &&
+          !menuDropdown.contains(event.target)
+        ) {
+          menuDropdown.classList.add("hidden");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
