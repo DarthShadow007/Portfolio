@@ -38,7 +38,6 @@
 </head>
 
 <body class="text-gray-800">
-  <!-- ========== NAVBAR ========== -->
   <header
     class="sticky top-0 z-30 backdrop-blur bg-white/80 border-b border-gray-200"
   >
@@ -50,6 +49,11 @@
         <a href="#about" class="hover:text-indigo-600 transition">About</a>
         <a href="#skills" class="hover:text-indigo-600 transition">Skills</a>
         <a href="#projects" class="hover:text-indigo-600 transition">Projects</a>
+        
+        <a href="game.html" class="text-indigo-600 font-bold hover:text-indigo-800 transition flex items-center gap-1">
+           Games Arcade
+        </a>
+
         <a href="#testimonials" class="hover:text-indigo-600 transition"
           >Testimonials</a
         >
@@ -77,7 +81,6 @@
     </div>
   </header>
 
-  <!-- ========== HERO ========== -->
   <section
     class="max-w-7xl md:px-10 flex flex-col md:flex-row gap-12 animate-fade mr-auto ml-auto pt-20 pr-6 pb-24 pl-6 items-center"
   >
@@ -90,14 +93,21 @@
         Full-stack developer, Unity tinkerer, and cyber-security enthusiast
         crafting meaningful digital experiences.
       </p>
-      <div class="flex gap-4 mt-8">
+      
+      <div class="flex flex-wrap gap-4 mt-8">
         <a
           href="#projects"
           class="px-5 py-3 bg-indigo-600 text-white rounded-md shadow hover:bg-indigo-700 transition"
           >View Projects</a
         >
 
-        <!-- Dropdown for Download Résumé with social links -->
+        <a
+          href="game.html"
+          class="px-5 py-3 bg-white text-indigo-600 border border-indigo-600 rounded-md shadow hover:bg-indigo-50 transition font-medium flex items-center gap-2"
+        >
+          <span>🎮 Play Games</span>
+        </a>
+
         <div class="relative inline-block text-left">
           <button
             id="resume-menu-button"
@@ -127,6 +137,7 @@
             class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
             role="menu"
             aria-orientation="vertical"
+            style="z-index: 50;" 
           >
             <div class="py-1" role="none">
               <a
@@ -168,7 +179,6 @@
 
   <div class="divider"></div>
 
-  <!-- ========== ABOUT ========== -->
   <section
     id="about"
     class="max-w-4xl mx-auto px-6 md:px-10 py-24 grid md:grid-cols-3 gap-12 animate-fade"
@@ -183,13 +193,11 @@
       of coding, you'll find me playing chess, strumming the guitar, smashing
       shuttlecocks on the badminton court, or enjoying a game of cricket with
       friends.
-      <!-- EDIT YOUR INTRODUCTION -->
     </p>
   </section>
 
   <div class="divider"></div>
 
-  <!-- ========== SKILLS ========== -->
   <section
     id="skills"
     class="max-w-7xl md:px-10 animate-fade mr-auto ml-auto pt-24 pr-6 pb-24 pl-6"
@@ -198,7 +206,6 @@
       Skills
     </h2>
     <div class="grid md:grid-cols-2 gap-16">
-      <!-- LIST OF SKILLS -->
       <div class="space-y-6">
         <div class="flex items-start gap-4">
           <svg
@@ -312,14 +319,11 @@
         </div>
       </div>
 
-      <!-- CHART VISUALIZATION -->
-
-    </div>
+      </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- ========== PROJECTS ========== -->
   <section
     id="projects"
     class="max-w-7xl md:px-10 animate-fade mr-auto ml-auto pt-24 pr-6 pb-24 pl-6"
@@ -329,7 +333,6 @@
     </h2>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-      <!-- CARD -->
       <article
         class="relative rounded-lg overflow-hidden border border-gray-200 shadow hover:shadow-lg transition group"
       >
@@ -385,7 +388,6 @@
 
   <div class="divider"></div>
 
-  <!-- ========== TESTIMONIALS ========== -->
   <section
     id="testimonials"
     class="max-w-5xl mx-auto px-6 md:px-10 py-24 animate-fade"
@@ -394,7 +396,6 @@
       Testimonials
     </h2>
     <div class="space-y-12">
-      <!-- SINGLE TESTIMONIAL -->
       <blockquote
         class="relative bg-white border border-gray-200 rounded-lg p-6 shadow-sm"
       >
@@ -439,7 +440,6 @@
 
   <div class="divider"></div>
 
-  <!-- ========== CONTACT ========== -->
   <section
     id="contact"
     class="max-w-3xl mx-auto px-6 md:px-10 py-24 animate-fade"
@@ -489,7 +489,6 @@
     </form>
   </section>
 
-  <!-- ========== FOOTER ========== -->
   <footer class="py-12 text-center text-sm text-gray-500">
     © <span id="year">2025</span> Kha_mohdbashar_mbk. All rights reserved.
   </footer>

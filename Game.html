@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Arcade Zone — Mohd Bashar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: Inter, sans-serif; }
+    .animate-fade { animation: fade 0.7s ease-out both; }
+    @keyframes fade { 0% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="bg-[#f9fafb] text-gray-800 min-h-screen flex flex-col">
+
+  <header class="sticky top-0 z-30 backdrop-blur bg-white/80 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
+      <span class="font-semibold tracking-tight text-xl">Arcade Zone</span>
+      <a href="index.html" class="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-indigo-600 transition">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Portfolio
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-grow flex flex-col items-center justify-center p-6 animate-fade">
+    
+    <div id="game-menu" class="max-w-4xl w-full text-center">
+      <h1 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">Choose Your Game</h1>
+      <p class="text-gray-600 mb-12">Select a game below to start playing.</p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div onclick="startGame('tictactoe')" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-indigo-300 transition cursor-pointer group">
+          <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-medium text-lg">Tic-Tac-Toe</h3>
+          <p class="text-sm text-gray-500 mt-2">The classic strategy game.</p>
+        </div>
+
+        <div onclick="startGame('rps')" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-indigo-300 transition cursor-pointer group">
+          <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+            <i data-lucide="scissors" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-medium text-lg">Rock Paper Scissors</h3>
+          <p class="text-sm text-gray-500 mt-2">Beat the computer AI.</p>
+        </div>
+
+        <div onclick="startGame('guess')" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-indigo-300 transition cursor-pointer group">
+          <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+            <i data-lucide="help-circle" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-medium text-lg">Guess Number</h3>
+          <p class="text-sm text-gray-500 mt-2">Find the hidden number.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="tictactoe" class="hidden w-full max-w-md bg-white p-8 rounded-xl shadow border border-gray-200 text-center">
+      <h2 class="text-2xl font-bold mb-6 text-gray-900">Tic-Tac-Toe</h2>
+      <div class="grid grid-cols-3 gap-2 mb-6 mx-auto w-64">
+        <div class="h-20 bg-gray-100 rounded flex items-center justify-center text-3xl font-bold cursor-pointer hover:bg-gray-200" onclick="makeMove(this, 0)"></div>
+        <div class="h-20 bg-gray-100 rounded flex items-center justify-center text-3xl font-bold cursor-pointer hover:bg-gray-200" onclick="makeMove(this, 1)"></div>
+        <div class="h-20 bg-gray-100 rounded flex items-center justify-center text-3xl font-bold cursor-pointer hover:bg-gray-200" onclick="makeMove(this, 2)"></div>
+        <div class="h-20 bg-gray-100 rounded flex items-center justify-center text-3xl font-bold cursor-pointer hover:bg-gray-200" onclick="makeMove(this, 3)"></div>
+        <div class="h-20 bg-gray-100 rounded flex items-center justify-center text-3xl font-bold cursor-pointer hover:bg-gray-200" onclick="makeMove(this, 4)"></div>
+        <div class="h-20 bg-gray-100 rounded flex items-center justify-center text-3xl font-bold cursor-pointer hover:bg-gray-200" onclick="makeMove(this, 5)"></div>
+        <div class="h-20 bg-gray-100 rounded flex items-center justify-center text-3xl font-bold cursor-pointer hover:bg-gray-200" onclick="makeMove(this, 6)"></div>
+        <div class="h-20 bg-gray-100 rounded flex items-center justify-center text-3xl font-bold cursor-pointer hover:bg-gray-200" onclick="makeMove(this, 7)"></div>
+        <div class="h-20 bg-gray-100 rounded flex items-center justify-center text-3xl font-bold cursor-pointer hover:bg-gray-200" onclick="makeMove(this, 8)"></div>
+      </div>
+      <p id="ttt-status" class="mb-6 font-medium text-indigo-600">Player X's Turn</p>
+      <div class="flex gap-4 justify-center">
+        <button onclick="resetTTT()" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Reset</button>
+        <button onclick="showMenu()" class="px-4 py-2 bg-red-50 text-red-600 rounded hover:bg-red-100 transition">Quit Game</button>
+      </div>
+    </div>
+
+    <div id="rps" class="hidden w-full max-w-md bg-white p-8 rounded-xl shadow border border-gray-200 text-center">
+      <h2 class="text-2xl font-bold mb-6 text-gray-900">Rock Paper Scissors</h2>
+      <p class="mb-6 text-gray-600">Choose your move:</p>
+      <div class="flex justify-center gap-4 mb-8">
+        <button onclick="playRPS('Rock')" class="w-20 h-20 rounded-full bg-indigo-50 border-2 border-indigo-100 hover:border-indigo-600 hover:bg-indigo-100 flex items-center justify-center text-2xl transition">✊</button>
+        <button onclick="playRPS('Paper')" class="w-20 h-20 rounded-full bg-indigo-50 border-2 border-indigo-100 hover:border-indigo-600 hover:bg-indigo-100 flex items-center justify-center text-2xl transition">✋</button>
+        <button onclick="playRPS('Scissors')" class="w-20 h-20 rounded-full bg-indigo-50 border-2 border-indigo-100 hover:border-indigo-600 hover:bg-indigo-100 flex items-center justify-center text-2xl transition">✌</button>
+      </div>
+      <h3 id="rps-result" class="text-xl font-bold text-gray-800 mb-6 min-h-[1.5rem]"></h3>
+      <button onclick="showMenu()" class="px-4 py-2 bg-red-50 text-red-600 rounded hover:bg-red-100 transition">Quit Game</button>
+    </div>
+
+    <div id="guess" class="hidden w-full max-w-md bg-white p-8 rounded-xl shadow border border-gray-200 text-center">
+      <h2 class="text-2xl font-bold mb-4 text-gray-900">Guess the Number</h2>
+      <p class="text-gray-600 mb-6">I'm thinking of a number between 1 and 100.</p>
+      <input type="number" id="guessInput" class="w-full p-3 border border-gray-300 rounded mb-4 focus:ring-2 focus:ring-indigo-600 outline-none" placeholder="Enter your guess">
+      <button onclick="checkGuess()" class="w-full py-3 bg-indigo-600 text-white rounded shadow hover:bg-indigo-700 transition mb-6">Guess</button>
+      <p id="guess-result" class="font-bold text-lg mb-6 min-h-[1.5rem]"></p>
+      <button onclick="showMenu()" class="px-4 py-2 bg-red-50 text-red-600 rounded hover:bg-red-100 transition">Quit Game</button>
+    </div>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+
+    // --- NAVIGATION ---
+    function showMenu() {
+      ['tictactoe', 'rps', 'guess'].forEach(id => document.getElementById(id).classList.add('hidden'));
+      document.getElementById('game-menu').classList.remove('hidden');
+    }
+
+    function startGame(gameId) {
+      document.getElementById('game-menu').classList.add('hidden');
+      document.getElementById(gameId).classList.remove('hidden');
+      
+      // Reset games on start
+      if(gameId === 'tictactoe') resetTTT();
+      if(gameId === 'guess') resetGuess();
+      if(gameId === 'rps') document.getElementById('rps-result').innerText = "Choose a move!";
+    }
+
+    // --- TIC TAC TOE ---
+    let tttBoard = Array(9).fill(null);
+    let tttPlayer = 'X';
+    let tttActive = true;
+
+    function makeMove(el, idx) {
+      if(!tttActive || tttBoard[idx]) return;
+      tttBoard[idx] = tttPlayer;
+      el.innerText = tttPlayer;
+      el.classList.add(tttPlayer === 'X' ? 'text-indigo-600' : 'text-purple-600');
+      
+      checkTTTWinner();
+      if(tttActive) {
+        tttPlayer = tttPlayer === 'X' ? 'O' : 'X';
+        document.getElementById('ttt-status').innerText = `Player ${tttPlayer}'s Turn`;
+      }
+    }
+
+    function checkTTTWinner() {
+      const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+      for(let w of wins) {
+        const [a,b,c] = w;
+        if(tttBoard[a] && tttBoard[a] === tttBoard[b] && tttBoard[a] === tttBoard[c]) {
+          document.getElementById('ttt-status').innerText = `Player ${tttBoard[a]} Wins!`;
+          tttActive = false;
+          return;
+        }
+      }
+      if(!tttBoard.includes(null)) {
+        document.getElementById('ttt-status').innerText = "It's a Draw!";
+        tttActive = false;
+      }
+    }
+
+    function resetTTT() {
+      tttBoard.fill(null);
+      tttPlayer = 'X';
+      tttActive = true;
+      document.getElementById('ttt-status').innerText = "Player X's Turn";
+      document.querySelectorAll('#tictactoe .grid div').forEach(d => {
+        d.innerText = '';
+        d.className = "h-20 bg-gray-100 rounded flex items-center justify-center text-3xl font-bold cursor-pointer hover:bg-gray-200 transition";
+      });
+    }
+
+    // --- ROCK PAPER SCISSORS ---
+    function playRPS(choice) {
+      const opts = ['Rock', 'Paper', 'Scissors'];
+      const comp = opts[Math.floor(Math.random() * 3)];
+      let res = '';
+      
+      if(choice === comp) res = `It's a Draw! Both chose ${choice}.`;
+      else if(
+        (choice === 'Rock' && comp === 'Scissors') ||
+        (choice === 'Paper' && comp === 'Rock') ||
+        (choice === 'Scissors' && comp === 'Paper')
+      ) res = `You Win! ${choice} beats ${comp}.`;
+      else res = `You Lose! ${comp} beats ${choice}.`;
+
+      const resEl = document.getElementById('rps-result');
+      resEl.innerText = res;
+      resEl.className = res.includes('Win') ? 'text-xl font-bold text-green-600 mb-6' : (res.includes('Lose') ? 'text-xl font-bold text-red-600 mb-6' : 'text-xl font-bold text-gray-800 mb-6');
+    }
+
+    // --- GUESS NUMBER ---
+    let targetNum = Math.floor(Math.random() * 100) + 1;
+    
+    function resetGuess() {
+      targetNum = Math.floor(Math.random() * 100) + 1;
+      document.getElementById('guessInput').value = '';
+      document.getElementById('guess-result').innerText = '';
+    }
+
+    function checkGuess() {
+      const val = Number(document.getElementById('guessInput').value);
+      const res = document.getElementById('guess-result');
+      if(val === targetNum) {
+        res.innerText = "Correct! You won!";
+        res.className = "font-bold text-lg mb-6 text-green-600";
+      } else if(val < targetNum) {
+        res.innerText = "Too low! Try again.";
+        res.className = "font-bold text-lg mb-6 text-red-600";
+      } else {
+        res.innerText = "Too high! Try again.";
+        res.className = "font-bold text-lg mb-6 text-red-600";
+      }
+    }
+  </script>
+</body>
+</html>
